@@ -1,0 +1,77 @@
+<% layout('layouts/boilerplate') -%>
+<div class="row">
+    <div class="row">
+        
+        <h1 class="text-center mb-2">Edit Job</h1>
+        <form class="text-center mb-5" action="/jobs/<%=job._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-danger">Delete</button>
+        </form>   
+    <div class="col-6 offset-3">
+        <form class="row g-3 needs-validation" action="/jobs/<%=job._id%>?_method=PUT" method="POST" novalidate>
+            <div class="col-md-6">
+                <label class="form-label" for="accManager">Acc/Manager</label>
+                <input class="form-control d-inline" type="text" id="accManager" name="job[accManager]" value="<%=job.accManager%>">
+                <div class="invalid-feedback">
+                    Please enter account mananger.
+                </div> 
+            </div> 
+            <div class="col-md-6">       
+                <label class="form-label" for="ref">Ref:</label>
+                <input class="form-control d-inline" type="text" id="ref" name="job[ref]" value="<%=job.ref%>">
+                <div class="invalid-feedback">
+                    Please enter job reference.
+                </div>
+            </div>
+            <div class="col-12">
+                <label class="form-label" for="name">Client Name:</label>
+                <input class="form-control" type="text" id="name" name="job[name]" value="<%=job.name%>">
+                <div class="invalid-feedback">
+                    Please enter job client name.
+                </div>
+            </div>
+            <div class="col-12">
+                <label class="form-label" for="address">Address:</label>
+                <input class="form-control" type="text" id="address" name="job[address]" value="<%=job.address%>">
+                <div class="invalid-feedback">
+                    Please enter address.
+                </div>
+            </div>
+            <div class="col-12">
+                <label class="form-label" for="details">Details:</label>
+                <input class="form-control"type="text" id="details" name="job[details]" value="<%=job.details%>">
+                <div class="invalid-feedback">
+                    Please enter job details or "N/A".
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" for="freq">Frequency:</label>
+                <input class="form-control" type="text" id="freq" name="job[freq]" value="<%=job.freq%>">
+                <div class="invalid-feedback">
+                    Please enter frequency.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" for="exterior">No. Exterior:</label>
+                <input class="form-control" type="number" id="exterior" name="job[exterior]" value="<%=job.exterior%>">
+                <div class="invalid-feedback">
+                    Please enter number.
+                </div>
+            </div>
+            <div class="col-md-4">
+                <label class="form-label" for="interior">No. Interior:</label>
+                <input class="form-control" type="number" id="interior" name="job[interior]" value="<%=job.interior%>">
+                <div class="invalid-feedback">
+                    Please enter number.
+                </div>
+            </div>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                <button type="submit" class="btn btn-primary me-md-2"">Save</button>
+                <a class="btn btn-secondary me-md-2 ml-1" href="/jobs">Back</a>
+            </div>
+        </form>
+               
+    </div>
+    </div>
+</div>
+
+    

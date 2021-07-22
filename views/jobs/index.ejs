@@ -1,0 +1,56 @@
+<% layout('layouts/boilerplate') -%>
+
+<body>
+    <div class="d-flex justify-content-between mb-5">
+    <h1>All Jobs</h1>
+    <a class="btn btn-primary d-flex align-items-center" href="/jobs/newjob">Add Job</a>
+    </div>
+    <div class="table-responsive">
+    <table class="table">
+        <tr>
+            <th>Ref.</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Details</th>
+            <th>Freq.</th>
+            <th>Ext</th>
+            <th>Int</th>
+            <th>Acc/Manager</th>
+
+        </tr>
+        <% for (let job of jobs) { %>
+            <tr>
+                <td>
+                    <%= job.ref %>
+                </td>
+                <td>
+                    <%= job.name %>
+                </td>
+                <td>
+                    <%= job.address %>
+                </td>
+                <td>
+                    <%= job.details %>
+                </td>
+                <td>
+                    <%= job.freq %>
+                </td>
+                <td>
+                    <%= job.exterior %>
+                </td>
+                <td>
+                    <%= job.interior %>
+                </td>
+                <td>
+                    <%= job.accManager %>
+                </td>
+                <td>
+                    <a class="btn btn-dark" href="/jobs/<%= job._id %> ">View</a>
+                </td>
+            </tr>
+            <% } %>
+
+    </table>
+</div>
+    
+
