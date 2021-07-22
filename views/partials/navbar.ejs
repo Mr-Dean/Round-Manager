@@ -5,10 +5,26 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
+        <div class="navbar-nav m-2">
           <a class="nav-link active" href="/">Home</a>
-          <a class="nav-link" href="/jobs">Jobs</a>
-          <a class="nav-link" href="/jobs/newjob">New Job</a>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Jobs
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" href="/jobs">All Jobs</a></li>
+              <li><a class="dropdown-item" href="/jobs/newjob">Add Job</a></li>
+              
+            </ul>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Operatives
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                <li><a class="dropdown-item" href="/operatives">All Operatives</a></li>
+                <li><a class="dropdown-item" href="/operatives/new">Add Operative</a></li>
+                
+              </ul>
          
         </div>
       </div>

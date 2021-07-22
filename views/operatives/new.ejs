@@ -1,0 +1,32 @@
+<% layout('layouts/boilerplate') -%>
+    <div class="row">
+        <div class="row">
+            <h1 class="text-center mb-3">Add Operative</h1>  
+        <div class="col-6 offset-3">
+            <form class="row g-3 needs-validation" action="/operatives" method="POST" novalidate>
+                <div class="col-md-6">
+                    <label class="form-label" for="name">Operative Name:</label>
+                    <input class="form-control d-inline" type="text" id="name" name="operative[name]">
+                    <div class="invalid-feedback">
+                        Please enter operative name.
+                    </div> 
+                </div> 
+                <div class="col-md-6">       
+                    <label class="form-label" for="number">Number:</label>
+                    <input class="form-control d-inline" type="number" id="number" name="operative[number]">
+                    <div class="invalid-feedback">
+                        Please enter operative number.
+                    </div>
+                </div>
+               
+                <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                    <button type="submit" class="btn btn-primary me-md-2">Submit</button>
+                    <a class="btn btn-secondary me-md-2 ml-1" href="/operatives">Back</a>
+                </div>
+            </form>
+                   
+        </div>
+        </div>
+    </div>
+    
+        

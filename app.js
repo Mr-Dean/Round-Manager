@@ -4,10 +4,12 @@ const path = require('path');
 const ExpressError = require('./utils/ExpressError');
 const asyncCatch = require('./utils/asyncCatch');
 const { jobSchema } = require('./schemas');
+const { operativeSchema } = require('./schemas');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const Job = require('./models/jobs');
+const Operative = require('./models/operative');
 
 mongoose.set('useFindAndModify', false);
 
@@ -36,6 +38,16 @@ const validateJob = (req, res, next) => {
     }
 };
 
+const validateOperative = (req, res, next) => {
+    const { error } = operativeSchema.validate(req.body);
+    if (error) {
+        const msg = error.details.map(el => el.message).join(',');
+        throw new ExpressError(msg, 400);
+    } else {
+        next();
+    }
+};
+
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -43,6 +55,28 @@ app.set('views', path.join(__dirname, 'views'));
 app.get('/', (req, res) => {
     res.render('home')
 });
+
+// OPERATIVE ROUTES //
+
+app.get('/operatives', asyncCatch(async (req, res) => {
+    const operatives = await Operative.find({});
+    res.render('operatives/index', { operatives });
+}));
+
+app.get('/operatives/new', (req, res) => {
+    res.render('operatives/new')
+});
+
+
+app.post('/operatives', validateOperative, asyncCatch(async (req, res) => {
+    const operative = new Operative(req.body.operative);
+    await operative.save();
+    res.redirect(`/operatives`)
+}));
+
+
+
+// JOB ROUTES //
 
 app.get('/jobs', asyncCatch(async (req, res) => {
     const jobs = await Job.find({});

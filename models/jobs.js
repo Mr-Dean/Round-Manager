@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+const { Schema } = mongoose;
 
 const JobSchema = new Schema({
     ref: String,
@@ -11,6 +11,10 @@ const JobSchema = new Schema({
     exterior: Number,
     interior: Number,
     riskAssess: String,
+    operative: {
+        type: Schema.Types.ObjectId,
+        ref: 'Operative'
+    }
 })
 
 module.exports = mongoose.model('Job', JobSchema);

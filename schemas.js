@@ -13,3 +13,9 @@ module.exports.jobSchema = Joi.object({
     }).required()
 });
 
+module.exports.operativeSchema = Joi.object({
+    operative: Joi.object({
+        name: Joi.string().required(),
+        number: Joi.number().required(),
+    }).required()
+});
