@@ -10,6 +10,7 @@ const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const Job = require('./models/jobs');
 const Operative = require('./models/operative');
+const Round = require('./models/rounds');
 
 mongoose.set('useFindAndModify', false);
 
@@ -67,12 +68,36 @@ app.get('/operatives/new', (req, res) => {
     res.render('operatives/new')
 });
 
+app.get('/operatives/:id', async(req, res) => {
+    const operative = await Operative.findById(req.params.id);
+    res.render('operatives/details', { operative })
+})
 
 app.post('/operatives', validateOperative, asyncCatch(async (req, res) => {
     const operative = new Operative(req.body.operative);
     await operative.save();
     res.redirect(`/operatives`)
 }));
+
+app.put('/operatives/:id', validateOperative, asyncCatch(async (req, res) => {
+    const { id } = req.params;
+    const operative = await Operative.findByIdAndUpdate(id, { ...req.body.operative })
+    res.redirect(`/operatives/${operative._id}`)
+}));
+
+app.delete('/operatives/:id', asyncCatch(async (req, res) => {
+    const { id } = req.params;
+    await Operative.findByIdAndDelete(id);
+    res.redirect('/operatives')
+}));
+
+
+// ROUND ROUTES //
+
+app.get('/rounds/new', (req, res) => {
+    res.render('rounds/new')
+});
+
 
 
 
