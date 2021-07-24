@@ -1,7 +1,10 @@
 <% layout('layouts/boilerplate') -%>
 
-<h1>Create Round</h1>
+<h1>Round</h1>
 
 <ul>
-    <li>Need to create logic to assign job to round</li>
+    <% for (let job of round) { %>
+    <li><%= job %></li>
+    <% } %>
 </ul>
+

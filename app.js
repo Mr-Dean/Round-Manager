@@ -93,9 +93,16 @@ app.delete('/operatives/:id', asyncCatch(async (req, res) => {
 
 
 // ROUND ROUTES //
+app.get('/rounds', (req,res) => {
+    res.render('rounds');
+})
 
-app.get('/rounds/new', (req, res) => {
-    res.render('rounds/new')
+app.get('/rounds/new', async(req, res) => {
+    const { number } = req.query;
+    const round = await Job.find({ roundNumber: number });
+    
+    
+    res.render('rounds/new', {round})
 });
 
 

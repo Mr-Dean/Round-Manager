@@ -7,6 +7,7 @@
     <table class="table">
         <thead>
         <tr>
+            <th>Round</th>
             <th>Ref.</th>
             <th>Name</th>
             <th>Address</th>
@@ -20,6 +21,9 @@
     </thead>
         <% for (let job of jobs) { %>
             <tr>
+                <td>
+                    <%= job.roundNumber %>
+                </td>
                 <td>
                     <%= job.ref %>
                 </td>

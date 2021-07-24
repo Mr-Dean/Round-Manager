@@ -1,24 +1,28 @@
 <% layout('layouts/boilerplate') -%>
 <div class="row">
     <div class="row">
-        <h1 class="text-center mb-2">Edit Job</h1>
-        <form class="text-center mb-5" action="/jobs/<%=job._id%>?_method=DELETE" method="POST">
-            <button class="btn btn-danger">Delete</button>
-        </form>   
+        <h1 class="text-center mb-2">Edit Job</h1>   
     <div class="col-6 offset-3">
         <form class="row g-3 needs-validation" action="/jobs/<%=job._id%>?_method=PUT" method="POST" novalidate>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <label class="form-label" for="accManager">Acc/Manager</label>
                 <input class="form-control d-inline" type="text" id="accManager" name="job[accManager]" value="<%=job.accManager%>">
                 <div class="invalid-feedback">
                     Please enter account mananger.
                 </div> 
             </div> 
-            <div class="col-md-6">       
+            <div class="col-md-4">       
                 <label class="form-label" for="ref">Ref:</label>
                 <input class="form-control d-inline" type="text" id="ref" name="job[ref]" value="<%=job.ref%>">
                 <div class="invalid-feedback">
                     Please enter job reference.
+                </div>
+            </div>
+            <div class="col-md-4">       
+                <label class="form-label" for="roundNumber">Round Number:</label>
+                <input class="form-control d-inline" type="number" id="roundNumber" name="job[roundNumber] value="<%= job.roundNumber %>">
+                <div class="invalid-feedback">
+                    Please enter round number.
                 </div>
             </div>
             <div class="col-12">
