@@ -97,15 +97,27 @@ app.get('/rounds', (req,res) => {
     res.render('rounds');
 })
 
+
+
 app.get('/rounds/new', async(req, res) => {
     const { number } = req.query;
+    const { employee } = req.query;
+    const operative = await Operative.findOne({ name: employee });
     const round = await Job.find({ roundNumber: number });
+   
     
     
-    res.render('rounds/new', {round})
+
+  res.render('rounds/new', { round, operative });
 });
 
 
+
+
+
+
+
+//need to link operative and round to create assigned round schema
 
 
 // JOB ROUTES //

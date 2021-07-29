@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const RoundSchema = new Schema({
-    roundNumber: Number,
+    round: Number,
+    operative: String,
     jobs: []
 
 });

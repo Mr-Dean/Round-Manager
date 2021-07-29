@@ -3,13 +3,7 @@ const { Schema } = mongoose;
 
 const OperativeSchema = new Schema({
     name: String,
-    number: Number,
-    jobs: [
-        {
-            type: Schema.Types.ObjectId,
-            ref: 'Job'
-        }
-    ]
+    number: Number
 })
 
 module.exports = mongoose.model('Operative', OperativeSchema);
