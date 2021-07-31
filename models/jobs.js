@@ -12,10 +12,6 @@ const JobSchema = new Schema({
     exterior: Number,
     interior: Number,
     riskAssess: String,
-    operative: {
-        type: Schema.Types.ObjectId,
-        ref: 'Operative'
-    }
 })
 
 module.exports = mongoose.model('Job', JobSchema);

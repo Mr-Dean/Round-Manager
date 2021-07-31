@@ -102,13 +102,17 @@ app.get('/rounds', (req,res) => {
 app.get('/rounds/new', async(req, res) => {
     const { number } = req.query;
     const { employee } = req.query;
-    const operative = await Operative.findOne({ name: employee });
+    const operative = await Operative.find({ name: employee });
     const round = await Job.find({ roundNumber: number });
+   
+
+
+    console.log(round, operative)
    
     
     
 
-  res.render('rounds/new', { round, operative });
+res.render('rounds/new', { round, operative })
 });
 
 

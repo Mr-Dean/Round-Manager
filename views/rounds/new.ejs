@@ -8,63 +8,65 @@
     <button>search</button>
 </form>
 
+<% for (let person of operative) {%>
+<h2><%= operative[0].name %></h2>
+<% } %>
+    
 
-<h2><%= console.log(typeof operative) %></h2>
 
-<div class="table-responsive">
-    <table class="table">
-        <thead>
+
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>Round</th>
+        <th>Ref.</th>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Details</th>
+        <th>Freq.</th>
+        <th>Ext</th>
+        <th>Int</th>
+        <th>Acc/Manager</th>
+
+    </tr>
+</thead>
+    <% for (let job of round) { %>
         <tr>
-            <th>Round</th>
-            <th>Ref.</th>
-            <th>Name</th>
-            <th>Address</th>
-            <th>Details</th>
-            <th>Freq.</th>
-            <th>Ext</th>
-            <th>Int</th>
-            <th>Acc/Manager</th>
-
+            <td>
+                <%= job.roundNumber %>
+            </td>
+            <td>
+                <%= job.ref %>
+            </td>
+            <td>
+                <%= job.name %>
+            </td>
+            <td>
+                <%= job.address %>
+            </td>
+            <td>
+                <%= job.details %>
+            </td>
+            <td>
+                <%= job.freq %>
+            </td>
+            <td>
+                <%= job.exterior %>
+            </td>
+            <td>
+                <%= job.interior %>
+            </td>
+            <td>
+                <%= job.accManager %>
+            </td>
+            <td>
+                <a class="btn btn-dark" href="/jobs/<%= job._id %> ">View</a>
+            </td>
         </tr>
-    </thead>
-        <% for (let job of round) { %>
-            <tr>
-                <td>
-                    <%= job.roundNumber %>
-                </td>
-                <td>
-                    <%= job.ref %>
-                </td>
-                <td>
-                    <%= job.name %>
-                </td>
-                <td>
-                    <%= job.address %>
-                </td>
-                <td>
-                    <%= job.details %>
-                </td>
-                <td>
-                    <%= job.freq %>
-                </td>
-                <td>
-                    <%= job.exterior %>
-                </td>
-                <td>
-                    <%= job.interior %>
-                </td>
-                <td>
-                    <%= job.accManager %>
-                </td>
-                <td>
-                    <a class="btn btn-dark" href="/jobs/<%= job._id %> ">View</a>
-                </td>
-            </tr>
-            <% } %>
+        <% } %>
 
-    </table>
- 
-
-
-
+</table>
+</div>
 
