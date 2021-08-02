@@ -104,17 +104,18 @@ app.get('/rounds/new', async(req, res) => {
     const { employee } = req.query;
     const operative = await Operative.find({ name: employee });
     const round = await Job.find({ roundNumber: number });
-   
-
-
-    console.log(round, operative)
-   
-    
-    
 
 res.render('rounds/new', { round, operative })
 });
 
+app.post('/rounds', async (req, res) => {
+
+    //HOW DO WE GET THE TABLE ROW DATA AND CREATE AN OBJECT FOR EACH ROW?????
+    //THEN PUSH TO ROUNDS SCHEMA??
+    
+    res.send(req.body)
+    
+});
 
 
 

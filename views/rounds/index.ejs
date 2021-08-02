@@ -5,3 +5,32 @@
     <input type="number" placeholder="round" name="number">
     <button>search</button>
 </form>
+
+<div class="d-flex justify-content-between mb-5">
+    <h1>All Rounds</h1>
+    </div>
+    <div class="table-responsive">
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Round No.</th>
+            <th>Operative</th>
+        </tr>
+    </thead>
+        <% for (let round of rounds) { %>
+            <tr>
+                <td>
+                    <%= round.number %>
+                </td>
+                <td>
+                    <%= round.operative %>
+                </td>
+               
+                <td>
+                    <a class="btn btn-dark" href="/jobs/<%= job._id %> ">View</a>
+                </td>
+            </tr>
+            <% } %>
+
+    </table>
+</div>
