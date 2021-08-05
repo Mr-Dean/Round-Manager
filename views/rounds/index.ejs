@@ -1,10 +1,5 @@
 <% layout('layouts/boilerplate') -%>
-<h1>Rounds</h1>
 
-<form action="/rounds/new" method="GET">
-    <input type="number" placeholder="round" name="number">
-    <button>search</button>
-</form>
 
 <div class="d-flex justify-content-between mb-5">
     <h1>All Rounds</h1>
@@ -15,20 +10,21 @@
         <tr>
             <th>Operative</th>
             <th>Round No.</th>
+            <th></th><th></th>
             
         </tr>
     </thead>
-    <% for (let round of rounds) { %>
-        <tr>
-            <td>
-                <%= round.operative %>
-            </td>
-            <td>
-                <%= round.jobs[0].roundNumber %>
-            </td>
-        </tr>
-    <% } %>
-    <p><%= rounds %></p>
+
+    
+
 
     </table>
+        <!-- trying to access keys of objects in the array while ensuring they are still linked to the operative-->
+        <% for (let round of rounds) { %>
+            <% round.jobs.forEach (function (item) { %>
+                 <%console.log(round.operative + item.name) %>
+            <% }) %>
+        <% } %>
+    
+    <p><%= rounds %></p>
 </div>

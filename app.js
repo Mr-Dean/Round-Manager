@@ -138,6 +138,10 @@ app.post('/rounds', async (req, res) => {
         interior: interior[i], 
   }
 });
+
+// need to add function to prevent duplicating operative rounds!
+
+
     //THEN PUSH TO ROUNDS SCHEMA??
     const round = new Round({operative: operative, jobs: jobs});
     await round.save();
@@ -147,7 +151,11 @@ app.post('/rounds', async (req, res) => {
 
 
 
+//create view for rounds
 
+//create edit for rounds
+
+//create delete for rounds
 
 
 //need to link operative and round to create assigned round schema
