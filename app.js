@@ -109,11 +109,38 @@ res.render('rounds/new', { round, operative })
 });
 
 app.post('/rounds', async (req, res) => {
+    let operative = req.body.round.operative;
+    //Get the data from each row
 
-    //HOW DO WE GET THE TABLE ROW DATA AND CREATE AN OBJECT FOR EACH ROW?????
-    //THEN PUSH TO ROUNDS SCHEMA??
+    let ref = req.body.round.ref; 
+    let name = req.body.round.name;
+    let address = req.body.round.address;
+    let freq = req.body.round.freq;
+    let accManager = req.body.round.accManager;
+    let details = req.body.round.details;
+    let exterior = req.body.round.exterior;
+    let interior = req.body.round.interior;
     
-    res.send(req.body)
+
+// Create the object array for each table row
+    let jobs =ref.map((ref, i) => {
+        return {
+        ref: ref,
+        name: name[i],
+        address: address[i],
+        freq: freq[i],
+        accManager: accManager[i],
+        details: details[i],
+        exterior: exterior[i],
+        interior: interior[i], 
+  }
+});
+
+
+    //THEN PUSH TO ROUNDS SCHEMA??
+    const round = new Round({operative: operative, jobs: jobs});
+    res.send(round)
+   
     
 });
 

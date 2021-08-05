@@ -31,10 +31,14 @@
 
     </tr>
 </thead>
+    
+
     <% for (let job of round) { %>
+     
+            
         <tr>
             <td>
-                <label class="form-label" for="ref"><input class="form-control d-inline" type="text" id="ref" name="round[ref]" value="<%=job.ref%>" readonly></label>
+                <label class="form-label" for="ref"><input class="form-control d-inline" type="text" id="ref" name="<%=`round[ref]`%>" value="<%=job.ref%>" readonly></label>
             </td>
             <td>
                 <label class="form-label" for="name"><input class="form-control" type="text" id="name" name="round[name]" value="<%=job.name%>" readonly></label>
