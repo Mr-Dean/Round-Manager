@@ -13,24 +13,22 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Round No.</th>
             <th>Operative</th>
+            <th>Round No.</th>
+            
         </tr>
     </thead>
-        <% for (let round of rounds) { %>
-            <tr>
-                <td>
-                    <%= round.number %>
-                </td>
-                <td>
-                    <%= round.operative %>
-                </td>
-               
-                <td>
-                    <a class="btn btn-dark" href="/jobs/<%= job._id %> ">View</a>
-                </td>
-            </tr>
-            <% } %>
+    <% for (let round of rounds) { %>
+        <tr>
+            <td>
+                <%= round.operative %>
+            </td>
+            <td>
+                <%= round.jobs[0].roundNumber %>
+            </td>
+        </tr>
+    <% } %>
+    <p><%= rounds %></p>
 
     </table>
 </div>

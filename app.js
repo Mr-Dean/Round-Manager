@@ -93,8 +93,10 @@ app.delete('/operatives/:id', asyncCatch(async (req, res) => {
 
 
 // ROUND ROUTES //
-app.get('/rounds', (req,res) => {
-    res.render('rounds');
+
+app.get('/rounds', async(req,res) => {
+    const rounds = await Round.find({})
+    res.render('rounds', { rounds });
 })
 
 
@@ -111,7 +113,7 @@ res.render('rounds/new', { round, operative })
 app.post('/rounds', async (req, res) => {
     let operative = req.body.round.operative;
     //Get the data from each row
-
+    let roundNumber = req.body.round.roundNumber;
     let ref = req.body.round.ref; 
     let name = req.body.round.name;
     let address = req.body.round.address;
@@ -125,6 +127,7 @@ app.post('/rounds', async (req, res) => {
 // Create the object array for each table row
     let jobs =ref.map((ref, i) => {
         return {
+        roundNumber: roundNumber[i],
         ref: ref,
         name: name[i],
         address: address[i],
@@ -135,14 +138,12 @@ app.post('/rounds', async (req, res) => {
         interior: interior[i], 
   }
 });
-
-
     //THEN PUSH TO ROUNDS SCHEMA??
     const round = new Round({operative: operative, jobs: jobs});
-    res.send(round)
-   
-    
+    await round.save();
+    res.redirect('/rounds') 
 });
+
 
 
 

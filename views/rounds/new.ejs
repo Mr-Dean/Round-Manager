@@ -20,6 +20,7 @@
 <table class="table">
     <thead>
     <tr>
+        <th>Round No.</th>
         <th>Ref.</th>
         <th>Name</th>
         <th>Address</th>
@@ -37,6 +38,9 @@
      
             
         <tr>
+            <td>
+                <label class="form-label" for="roundNumber"><input class="form-control d-inline" type="text" id="roundNumber" name="<%=`round[roundNumber]`%>" value="<%=job.roundNumber%>" readonly></label>
+            </td>
             <td>
                 <label class="form-label" for="ref"><input class="form-control d-inline" type="text" id="ref" name="<%=`round[ref]`%>" value="<%=job.ref%>" readonly></label>
             </td>
