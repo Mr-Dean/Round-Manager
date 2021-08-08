@@ -1,12 +1,22 @@
 <% layout('layouts/boilerplate') -%>
 
-<h1>Create Round</h1>
+<h1 class="text-center mb-5">Create Round</h1>
 
-<form action="/rounds/new" method="GET">
-    <input type="number" placeholder="round" name="number">
-    <input type="text" placeholder="employee" name="employee">
-    <button>search</button>
+<form class="align-items-center offset-3 mb-5" action="/rounds/new" method="GET">
+    <div class="row">
+        <div class="col">
+            <input class="form-control" type="number" placeholder="Enter round number" name="number">
+        </div>
+        <div class="col">
+            <input class="form-control" type="text" placeholder="Enter operative" name="employee">
+        </div>
+        <div class="col">
+            <button class="btn btn-secondary">Search</button>
+        </div>
+      </div> 
 </form>
+
+
 <form action="/rounds" method="POST">
     <% for (let person of operative) {%>
         <h2><label for="operative"><input type="text" id="operative" name="round[operative]" value="<%= operative[0].name %>" readonly></label></h2>

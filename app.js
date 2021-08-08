@@ -94,6 +94,8 @@ app.delete('/operatives/:id', asyncCatch(async (req, res) => {
 
 // ROUND ROUTES //
 
+//NEED TO ADD ERROR HANDLING!
+
 app.get('/rounds', async(req,res) => {
     const rounds = await Round.find({})
     res.render('rounds', { rounds });
@@ -110,7 +112,7 @@ app.get('/rounds/new', async(req, res) => {
 res.render('rounds/new', { round, operative })
 });
 
-app.post('/rounds', async (req, res) => {
+app.post('/rounds', async(req, res) => {
     let operative = req.body.round.operative;
     //Get the data from each row
     let roundNumber = req.body.round.roundNumber;
@@ -140,9 +142,6 @@ app.post('/rounds', async (req, res) => {
 });
 
 // need to add function to prevent duplicating operative rounds!
-
-
-    //THEN PUSH TO ROUNDS SCHEMA??
     const round = new Round({operative: operative, jobs: jobs});
     await round.save();
     res.redirect('/rounds') 
