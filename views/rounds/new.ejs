@@ -1,6 +1,6 @@
 <% layout('layouts/boilerplate') -%>
 
-<h1>Round</h1>
+<h1>Create Round</h1>
 
 <form action="/rounds/new" method="GET">
     <input type="number" placeholder="round" name="number">
@@ -8,18 +8,12 @@
     <button>search</button>
 </form>
 <form action="/rounds" method="POST">
-<% for (let person of operative) {%>
-<h2><label for="operative"><input type="text" id="operative" name="round[operative]" value="<%= operative[0].name %>" readonly></label></h2>
-<% } %>
-    
-
-
-
-
-
-<table class="table">
-    <thead>
-    <tr>
+    <% for (let person of operative) {%>
+        <h2><label for="operative"><input type="text" id="operative" name="round[operative]" value="<%= operative[0].name %>" readonly></label></h2>
+    <% } %>
+    <table class="table">
+        <thead>
+        <tr>
         <th>Round No.</th>
         <th>Ref.</th>
         <th>Name</th>
@@ -30,13 +24,9 @@
         <th>Int</th>
         <th>Acc/Manager</th>
 
-    </tr>
-</thead>
-    
-
-    <% for (let job of round) { %>
-     
-            
+        </tr>
+        </thead>
+        <% for (let job of round) { %> 
         <tr>
             <td>
                 <label class="form-label" for="roundNumber"><input class="form-control d-inline" type="text" id="roundNumber" name="<%=`round[roundNumber]`%>" value="<%=job.roundNumber%>" readonly></label>
@@ -71,10 +61,10 @@
         </tr>
         <% } %>
 
-</table>
-<button class="btn btn-primary" id="create-round">Create Round</button>
-</form>
-</div>
+    </table>
+    <button class="btn btn-primary" id="create-round">Create Round</button>
+ </form>
+
 
 
 

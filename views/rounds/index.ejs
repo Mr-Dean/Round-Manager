@@ -24,6 +24,7 @@
             <% round.jobs.forEach (function (item) { %>
                  <%console.log(round.operative + item.name) %>
             <% }) %>
+            <a href="/rounds/<%= round._id %>">View</a>
         <% } %>
     
     <p><%= rounds %></p>

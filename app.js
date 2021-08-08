@@ -148,8 +148,17 @@ app.post('/rounds', async (req, res) => {
     res.redirect('/rounds') 
 });
 
+app.get('/rounds/:id', async(req, res) => {
+    const round = await Round.findById(req.params.id);
+    res.render('rounds/show', { round })
+})
 
 
+app.delete('/rounds/:id', asyncCatch(async (req, res) => {
+    const { id } = req.params;
+    await Round.findByIdAndDelete(id);
+    res.redirect('/rounds')
+}));
 
 //create view for rounds
 
