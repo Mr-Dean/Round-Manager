@@ -2,6 +2,7 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const JobSchema = new Schema({
+    location: String,
     roundNumber: Number,
     ref: String,
     name: String,

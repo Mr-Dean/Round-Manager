@@ -3,29 +3,30 @@
 
 <div class="d-flex justify-content-between mb-5">
     <h1>All Rounds</h1>
+    <a class="btn btn-primary d-flex align-items-center" href="/rounds/new">Create New Round</a>
     </div>
     <div class="table-responsive">
-    <table class="table">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Operative</th>
             <th>Round No.</th>
-            <th></th><th></th>
-            
+            <th>Location</th>
+            <th>No. of Jobs</th>
+            <th>Info</th>   
         </tr>
     </thead>
 
-    
-
-
-    </table>
-        <!-- trying to access keys of objects in the array while ensuring they are still linked to the operative-->
+    <!--will have to figure out if all operatives are assigned to particular location-->
         <% for (let round of rounds) { %>
-            <% round.jobs.forEach (function (item) { %>
-                 <%console.log(round.operative + item.name) %>
-            <% }) %>
-            <a href="/rounds/<%= round._id %>">View</a>
+        <tr>
+            <td><%= round.operative %></td>
+            <td><%= round.jobs[0].roundNumber%></td>
+            <td><%= round.jobs[0].location%></td>
+            <td><%= round.jobs.length%></td>
+            <td><a href="/rounds/<%= round._id %>">View</a></td>
+        </tr>
+              
         <% } %>
-    
-    <p><%= rounds %></p>
-</div>
+    </table>
+       

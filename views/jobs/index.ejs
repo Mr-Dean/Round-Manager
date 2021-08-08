@@ -4,10 +4,11 @@
     <a class="btn btn-primary d-flex align-items-center" href="/jobs/newjob">Add Job</a>
     </div>
     <div class="table-responsive">
-    <table class="table">
+    <table class="table table-striped">
         <thead>
         <tr>
             <th>Round</th>
+            <th>Location</th>
             <th>Ref.</th>
             <th>Name</th>
             <th>Address</th>
@@ -23,6 +24,9 @@
             <tr>
                 <td>
                     <%= job.roundNumber %>
+                </td>
+                <td>
+                    <%= job.location %>
                 </td>
                 <td>
                     <%= job.ref %>

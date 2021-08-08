@@ -1,6 +1,59 @@
 <% layout('layouts/boilerplate') -%>
-<h2><%= round %></h2>
+<div class="d-flex justify-content-between mb-5">
+<h1> <%= round.operative %></h1>
+<span><a class="btn btn btn-secondary" href="/rounds">Back</a></span>
+</div>
+<h3>Round No:<%= round.jobs[0].roundNumber%></h3>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Ref.</th>
+            <th>Name</th>
+            <th>Address</th>
+            <th>Details</th>
+            <th>Freq.</th>
+            <th>Ext</th>
+            <th>Int</th>
+            <th>Acc/Manager</th>
+
+        </tr>
+    </thead>
+        <% for (let i = 0; i< round.jobs.length; i++) { %>
+            <tr>
+                <td>
+                    <%= round.jobs[i].ref %>
+                </td>
+                <td>
+                    <%= round.jobs[i].name %>
+                </td>
+                <td>
+                    <%= round.jobs[i].address %>
+                </td>
+                <td>
+                    <%= round.jobs[i].details %>
+                </td>
+                <td>
+                    <%= round.jobs[i].freq %>
+                </td>
+                <td>
+                    <%= round.jobs[i].exterior %>
+                </td>
+                <td>
+                    <%= round.jobs[i].interior %>
+                </td>
+                <td>
+                    <%= round.jobs[i].accManager %>
+                </td>
+            </tr>
+            <% } %>
+
+    </table>
+</div>
+    
+
 
 <form action="/rounds/<%=round._id%>?_method=DELETE" method="POST">
-    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-danger">Delete Round</button>
 </form>

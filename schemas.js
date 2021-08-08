@@ -2,6 +2,7 @@ const Joi = require('joi');
 
 module.exports.jobSchema = Joi.object({
     job: Joi.object({
+        location: Joi.string().required(),
         roundNumber: Joi.number().required(),
         ref: Joi.string().required(),
         name: Joi.string().required(),
