@@ -169,6 +169,12 @@ app.delete('/rounds/:id', asyncCatch(async (req, res) => {
 //need to link operative and round to create assigned round schema
 
 
+// TEST JOBS
+app.get('/test', (req, res) => {
+    res.render('rounds/jobform')
+})
+
+
 // JOB ROUTES //
 
 app.get('/jobs', asyncCatch(async (req, res) => {

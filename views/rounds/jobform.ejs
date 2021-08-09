@@ -1,0 +1,20 @@
+<% layout('layouts/boilerplate') -%>
+
+<button id='start'>Start</button>
+<input type='text' id='start-time'>
+<button id='finish'>Finish</button>
+<input type='text' id='finish-time'>
+<p></p>
+
+<script>
+    document.getElementById('start').addEventListener('click', ()=> {
+        let date = new Date();
+        document.getElementById('start-time').value = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    })
+    document.getElementById('finish').addEventListener('click', ()=> {
+        let date = new Date();
+        document.getElementById('finish-time').value = date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    })
+
+  
+</script>
