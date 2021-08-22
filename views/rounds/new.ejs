@@ -24,6 +24,7 @@
     <table class="table">
         <thead>
         <tr>
+        <th>id</th>
         <th>Round No.</th>
         <th>Ref.</th>
         <th>Name</th>
@@ -38,6 +39,9 @@
         </thead>
         <% for (let job of round) { %> 
         <tr>
+            <td>
+                <label class="form-label" for="_id"><input class="form-control d-inline" type="text" id="_id" name="<%=`round[_id]`%>" value="<%=job._id%>" readonly></label>
+            </td>
             <td>
                 <label class="form-label" for="roundNumber"><input class="form-control d-inline" type="text" id="roundNumber" name="<%=`round[roundNumber]`%>" value="<%=job.roundNumber%>" readonly></label>
             </td>

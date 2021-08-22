@@ -9,6 +9,7 @@
     <table class="table table-striped">
         <thead>
         <tr>
+            <th>ID</th>
             <th>Ref.</th>
             <th>Name</th>
             <th>Address</th>
@@ -22,6 +23,9 @@
     </thead>
         <% for (let i = 0; i< round.jobs.length; i++) { %>
             <tr>
+                <td>
+                    <%= round.jobs[i]._id %>
+                </td>
                 <td>
                     <%= round.jobs[i].ref %>
                 </td>

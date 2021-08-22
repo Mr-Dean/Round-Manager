@@ -108,6 +108,7 @@ app.get('/rounds/new', async(req, res) => {
     const { employee } = req.query;
     const operative = await Operative.find({ name: employee });
     const round = await Job.find({ roundNumber: number });
+    
 
 res.render('rounds/new', { round, operative })
 });
@@ -115,6 +116,7 @@ res.render('rounds/new', { round, operative })
 app.post('/rounds', async(req, res) => {
     let operative = req.body.round.operative;
     //Get the data from each row
+    let _id = req.body.round._id;
     let roundNumber = req.body.round.roundNumber;
     let ref = req.body.round.ref; 
     let name = req.body.round.name;
@@ -124,11 +126,15 @@ app.post('/rounds', async(req, res) => {
     let details = req.body.round.details;
     let exterior = req.body.round.exterior;
     let interior = req.body.round.interior;
+
+   
+    
     
 
 // Create the object array for each table row
     let jobs =ref.map((ref, i) => {
         return {
+        _id: _id[i],
         roundNumber: roundNumber[i],
         ref: ref,
         name: name[i],
@@ -140,8 +146,10 @@ app.post('/rounds', async(req, res) => {
         interior: interior[i], 
   }
 });
+console.log(jobs)
 
 // need to add function to prevent duplicating operative rounds!
+    
     const round = new Round({operative: operative, jobs: jobs});
     await round.save();
     res.redirect('/rounds') 
